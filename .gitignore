@@ -2,3 +2,4 @@
 dist
 venv
 .DS_Store
+build

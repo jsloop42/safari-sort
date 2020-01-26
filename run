@@ -7,4 +7,4 @@ rm -rf dist
 mkdir dist
 gcc build/safari.o -o dist/safari -L/usr/local/opt/python/Frameworks/Python.framework/Versions/3.7/lib/python3.7/config-3.7m-darwin -lpython3.7m -ldl -framework CoreFoundation
 
-source ./clean
+# source ./clean

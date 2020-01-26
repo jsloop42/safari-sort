@@ -1,0 +1,47 @@
+{
+    'WebBookmarkUUID': '1981E7B1-C5DC-4B3D-B6EF-3A4A88AB7165',
+    'WebBookmarkFileVersion': 1,
+    'Sync': {},
+    'Children': [{
+        'WebBookmarkUUID': '9C5E29A4-3D2F-4085-8CD9-8DAFF30F166D', 
+        'Children': [{
+            'WebBookmarkUUID': '7B91A0DC-5D86-42B3-A52E-D302D1BF2292',
+            'ReadingListNonSync': {
+                'neverFetchMetadata': False
+            }, 
+            'URLString': 'https://e-resident.gov.ee/welcome/',
+            'Sync': {},
+            'WebBookmarkType': 'WebBookmarkTypeLeaf',
+            'URIDictionary': {
+                'title': 'Welcome | e-Residency'
+            }
+        }, {
+            'WebBookmarkUUID': 'AAC44B3E-E6F6-4272-A0FE-2E1826044DD5',
+            'ReadingListNonSync': {
+                'neverFetchMetadata': False
+            }, 
+            'URLString': 'https://www2.politsei.ee/en/teenused/inquiries/',
+            'Sync': {},
+            'WebBookmarkType': 'WebBookmarkTypeLeaf',
+            'URIDictionary': {
+                'title': 'Document validity check'
+            }
+        }, {
+            'WebBookmarkUUID': 'FCB6EFD9-F98D-474F-B764-426B64E272E6',
+            'ReadingListNonSync': {
+                'neverFetchMetadata': False
+            }, 
+            'URLString': 'https://www.workinestonia.com/',
+            'Sync': {},
+            'WebBookmarkType': 'WebBookmarkTypeLeaf',
+            'URIDictionary': {
+                'title': 'Why Estonia? - Work in Estonia'
+            }
+        }],
+        'Sync': {},
+        'WebBookmarkType': 'WebBookmarkTypeList',
+        'Title': 'EstEID'
+    }],
+    'Title': '',
+    'WebBookmarkType': 'WebBookmarkTypeList'
+}
