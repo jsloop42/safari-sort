@@ -61,6 +61,12 @@ cdef class Worker:
                 'Sync': {},
                 'WebBookmarkType': 'WebBookmarkTypeList',
                 'Title': 'EstEID'
+            }, {
+                'WebBookmarkUUID': '3C5E29A4-3D2F-4085-8CD9-8DAFF30F1611', 
+                'Children': [],
+                'Sync': {},
+                'WebBookmarkType': 'WebBookmarkTypeLeaf',
+                'Title': 'Apple'
             }],
             'Title': '',
             'WebBookmarkType': 'WebBookmarkTypeList'
@@ -86,19 +92,32 @@ cdef class Worker:
         return x * 2
 
     cdef open_plist(self):
-        print("opening bookmarks.plist: " + self.path)
+        print('opening bookmarks.plist: ', self.path)
         with open(self.path, 'rb') as fp:
             self.plist = load(fp)
         print('plist ', self.bookmarks)
 
+    cdef getTitle(self, hm):
+        if 'URIDictionary' in hm:
+            return hm['URIDictionary']['title']
+        return hm['Title']
+
     cdef orderByTitleAsc(self, hm):
-        print("ordering by title ascending")
-        for k, v in hm.items():
-            print(k, v)
-            if k == 'Children' and len(v) > 0:
-                print('child len: ', len(v))
-                for x in v:
-                    self.orderByTitleAsc(x)
+        print('ordering by title ascending for node')
+        if 'Children' in hm:
+            print('found children', hm)
+            xs = hm['Children']
+            count = len(xs)
+            print('children count', count)
+            if count > 0:
+                for x in xs:
+                    print(self.getTitle(x))
+                    xs = [self.orderByTitleAsc(x)
+                          for x in
+                          sorted(xs, key=lambda y: self.getTitle(y))]
+                hm['Children'] = xs
+        print('bookmarks:', hm)
+        return hm
 
     cdef parallel_exec(self):
         print('parallel exec')
@@ -111,7 +130,7 @@ cdef class Worker:
 
     cpdef void process(self):
         self.open_plist()
-        self.parallel_exec()
+        # self.parallel_exec()
         self.orderByTitleAsc(self.bookmarks)
 
 
